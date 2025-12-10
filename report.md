@@ -6,14 +6,35 @@
 
 ## 📌 Executive Overview
 
-RainDrop is a next-generation quantitative equity strategy that blends **symbolic price structure**, **topological features**, and **machine-learned scoring dynamics** to generate high-conviction, high-diversity stock rankings.
+RainDrop is a next-generation quantitative equity strategy built on the principle that price movements contain hidden structural patterns that traditional factor models fail to capture. Instead of relying on backward-looking fundamentals or simple momentum, RainDrop analyzes symbolic, topological, and dynamic characteristics of price evolution—allowing it to identify stocks exhibiting highly stable, coherent, and persistent return structures.
 
+Across both historical simulations (2018–2025) and live third-party evaluation through Numerai Signals, RainDrop has demonstrated exceptional predictive power, consistency, and resilience across market regimes
+
+🔍 Alpha Origin: Strength Through Stock Selection
+
+A core characteristic of RainDrop is its strong correlation with quality stock selection.
+Because the model ranks securities using purely price-based structural features (not overfitted machine-learning correlates or economic assumptions), its performance is inherently dependent on the quality of the input universe.
+
+In practice, this means:
+
+When supplied with a well-constructed universe—such as high-liquidity, high-capitalization equities or carefully curated thematic baskets—RainDrop consistently identifies the most structurally robust assets.
+
+In such universes, RainDrop has repeatedly demonstrated the ability to outperform traditional benchmarks, including SPY, equal-weighted portfolios, and random rebalancing strategies.
+
+The app does not blindly optimize the entire market; instead, it selects from your chosen opportunity set and reliably surfaces the top performers within that set.
+
+Across thousands of backtest permutations, RainDrop exhibits its strongest alpha when the underlying universe is meaningful, well-defined, and economically coherent.
+
+In short:
+
+RainDrop magnifies the edge of a good stock universe.
+If the universe represents a strong thematic, fundamental, or factor-based exposure, RainDrop enhances it by isolating the stocks with the strongest structural price dynamics.
 This report consolidates RainDrop’s performance across two independent evaluation frameworks:
 
 1. **Historical Market Backtest (2018–2025)**  
 2. **Numerai Signals Live Tournament (Rounds 1130–1156)**  
 
-### 🚀 Key Highlights for Investors
+### 🚀 Key Highlights
 
 - **RainDrop ranks in the top 1% globally** on Numerai Signals across both **Alpha** and **MPC** metrics.  
 - The strategy demonstrates **high outperformance**, delivering **6× SPY total return** over 2018–2025 in backtests.  
