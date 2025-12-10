@@ -2,7 +2,7 @@ name: Update Alpaca Equity Graph
 
 on:
   schedule:
-    # Run daily at 6 PM UTC (after market close)
+    # Run on weekdays (Mon-Fri) at 6 PM UTC (after US market close)
     - cron: '0 18 * * 1-5'
   workflow_dispatch:  # Allow manual trigger
 

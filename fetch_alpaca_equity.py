@@ -6,6 +6,8 @@ Fetch portfolio equity data from Alpaca Paper Trading account and generate a gra
 import os
 import sys
 from datetime import datetime, timedelta
+import matplotlib
+matplotlib.use('Agg')  # Use non-interactive backend for headless environments
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 from alpaca.trading.client import TradingClient
@@ -20,7 +22,7 @@ def fetch_equity_data(api_key: str, secret_key: str, timeframe: str = "1D", peri
     Args:
         api_key: Alpaca API key
         secret_key: Alpaca secret key
-        timeframe: Timeframe for data points (1D, 1H, etc.)
+        timeframe: Timeframe for data points (1D, 1H, 15Min, 5Min, 1Min)
         period: Period to fetch (1M, 3M, 1Y, etc.)
     
     Returns:
@@ -29,10 +31,22 @@ def fetch_equity_data(api_key: str, secret_key: str, timeframe: str = "1D", peri
     # Initialize client for paper trading
     client = TradingClient(api_key, secret_key, paper=True)
     
+    # Map timeframe string to TimeFrame enum
+    timeframe_map = {
+        "1D": TimeFrame.ONE_DAY,
+        "1H": TimeFrame.ONE_HOUR,
+        "15Min": TimeFrame.FIFTEEN_MIN,
+        "5Min": TimeFrame.FIVE_MIN,
+        "1Min": TimeFrame.ONE_MIN,
+    }
+    
+    if timeframe not in timeframe_map:
+        raise ValueError(f"Unsupported timeframe: {timeframe}. Supported values: {list(timeframe_map.keys())}")
+    
     # Create request for portfolio history
     request_params = GetPortfolioHistoryRequest(
         period=period,
-        timeframe=TimeFrame.ONE_DAY if timeframe == "1D" else TimeFrame.ONE_HOUR
+        timeframe=timeframe_map[timeframe]
     )
     
     # Get portfolio history
@@ -52,6 +66,10 @@ def generate_equity_graph(portfolio_history, output_path: str = "alpaca_equity_g
     # Extract data
     timestamps = portfolio_history.timestamp
     equity = portfolio_history.equity
+    
+    # Validate data
+    if not equity or len(equity) == 0:
+        raise ValueError("No equity data available from Alpaca. Ensure your account has trading history.")
     
     # Convert timestamps to datetime objects
     dates = [datetime.fromtimestamp(ts) for ts in timestamps]
