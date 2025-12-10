@@ -1,6 +1,6 @@
 
 # 🌐 RainDrop Quantitative Strategy – Institutional Research Report  
-### *Integrated Historical Backtest (2018–2025) & Live Numerai Signals Performance*
+### *Integrated Historical Backtest (2018–2025), Live Numerai Signals Performance & Live Alpaca Paper Trading Account*
 
 ---
 
