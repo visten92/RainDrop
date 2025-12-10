@@ -27,10 +27,11 @@ In short:
 **RainDrop magnifies the edge of a good stock universe.
 If the universe represents a strong thematic, fundamental, or factor-based exposure, RainDrop enhances it by isolating the stocks with the strongest structural price dynamics.**
 
-This report consolidates RainDrop’s performance across two independent evaluation frameworks:
+This report consolidates RainDrop’s performance across three independent evaluation frameworks:
 
 1. **Historical Market Backtest (2018–2025)**  
 2. **Numerai Signals Live Tournament (Rounds 1130–1156)**  
+3. **Live Alpaca Paper Trading Account**  
 
 ### 🚀 Key Highlights
 
@@ -38,8 +39,28 @@ This report consolidates RainDrop’s performance across two independent evaluat
 - The strategy demonstrates **high outperformance**, delivering **6× SPY total return** over 2018–2025 in backtests.  
 - Results are validated across **real markets** *and* an *external competitive benchmark*, ensuring robustness.  
 - The methodology is **interpretable**, **regime-adaptive**, and **factor-diversifying**.
+- **Live paper trading** on Alpaca demonstrates real-time strategy execution with transparent equity tracking.
+---
+
+# 📊 Live Paper Trading Performance
+
+## Alpaca Paper Trading Account - Real-Time Equity Curve
+
+The RainDrop strategy is deployed live in an Alpaca paper trading environment, providing real-time validation of the strategy's execution and performance characteristics.
+
+![Alpaca Portfolio Equity](alpaca_equity_graph.png)
+
+*Live equity curve updated from Alpaca Paper Trading API. Run `python fetch_alpaca_equity.py` to regenerate with latest data.*
+
+### Why Paper Trading Validation Matters
+
+- **Execution Reality Check**: Validates that theoretical backtest results translate to real-world order execution
+- **Slippage & Timing**: Captures realistic market microstructure effects not present in backtests
+- **Strategy Robustness**: Demonstrates the strategy works in live market conditions with real-time data feeds
+- **Transparency**: Provides an independent, third-party verifiable performance record
 
 ---
+
 
 # 🧭 1. Strategy Overview
 
