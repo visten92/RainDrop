@@ -6,7 +6,7 @@
 
 ## 📌 Executive Overview
 
-RainDrop is a next-generation quantitative equity strategy built on the principle that price movements contain hidden structural patterns that traditional factor models fail to capture. Instead of relying on backward-looking fundamentals or simple momentum, RainDrop analyzes symbolic, topological, and dynamic characteristics of price evolution—allowing it to identify stocks exhibiting highly stable, coherent, and persistent return structures.
+RainDrop is a next-generation quantitative equity strategy built on the principle that price movements contain hidden structural patterns that traditional factor models fail to capture. Instead of relying on backward-looking fundamentals or simple momentum, RainDrop analyzes symbolic, topological, and dynamic characteristics of price evolution - allowing it to identify stocks exhibiting highly stable, coherent, and persistent return structures.
 
 Across both historical simulations (2018–2025) and live third-party evaluation through Numerai Signals, RainDrop has demonstrated exceptional predictive power, consistency, and resilience across market regimes
 
