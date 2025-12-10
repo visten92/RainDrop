@@ -55,7 +55,7 @@ def generate_equity_graph(portfolio_history, output_path: str = "alpaca_equity_g
     ax.set_ylabel('Equity ($)', fontsize=12, fontweight='bold')
     ax.set_title('Alpaca Paper Trading - Portfolio Equity', fontsize=14, fontweight='bold', pad=20)
     ax.grid(True, alpha=0.3, linestyle='--')
-    ax.legend(loc='upper left', fontsize=10)
+    ax.legend(loc='bottom left', fontsize=10)
 
     ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))
     ax.xaxis.set_major_locator(mdates.AutoDateLocator())
