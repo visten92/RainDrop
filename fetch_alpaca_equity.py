@@ -114,8 +114,8 @@ def generate_equity_graph(portfolio_history, output_path: str = "alpaca_equity_g
 def main():
     """Main execution function."""
     # Get API credentials from environment variables
-    api_key = os.getenv('ALPACA_API_KEY')
-    secret_key = os.getenv('ALPACA_SECRET_KEY')
+    api_key = os.getenv('ALPACA_API_KEY', "PKLBHKUZXA4P7TD4PD7RM4BVMF")
+    secret_key = os.getenv('ALPACA_SECRET_KEY' "GdTHio5HcSg4XdVPihGWKezqjzPvoqfj6tQwP4VLuEQP")
     
     if not api_key or not secret_key:
         print("ERROR: Alpaca API credentials not found!")
