@@ -185,6 +185,3 @@ RainDrop demonstrates:
 - Diversifying exposures and interpretable signals  
 - Top 1% performance among thousands of global quantitative models  
 
-### ✔ **RainDrop is ready for institutional deployment.**
-
-#
