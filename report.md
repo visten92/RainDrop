@@ -190,7 +190,7 @@ Adds **orthogonal alpha** to existing quant portfolios.
 |-------|---------------|
 | **A – Aggressive** | Maximum alpha generation |
 | **M – Moderate** | Balanced return/risk |
-| **N – Custom** | Stability & feature-neutral predictions |
+| **C – Conservative** | Stability & feature-neutral predictions |
 
 ---
 
