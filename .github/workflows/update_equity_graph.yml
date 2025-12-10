@@ -9,6 +9,8 @@ on:
 jobs:
   update-equity-graph:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write  # Needed to commit and push the updated graph
     
     steps:
     - name: Checkout repository
