@@ -24,8 +24,8 @@ Across thousands of backtest permutations, RainDrop exhibits its strongest alpha
 
 In short:
 
-RainDrop magnifies the edge of a good stock universe.
-If the universe represents a strong thematic, fundamental, or factor-based exposure, RainDrop enhances it by isolating the stocks with the strongest structural price dynamics.
+**RainDrop magnifies the edge of a good stock universe.
+If the universe represents a strong thematic, fundamental, or factor-based exposure, RainDrop enhances it by isolating the stocks with the strongest structural price dynamics.**
 
 This report consolidates RainDrop’s performance across two independent evaluation frameworks:
 
