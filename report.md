@@ -18,17 +18,15 @@ Because the model ranks securities using purely price-based structural features 
 In practice, this means:
 
 When supplied with a well-constructed universe—such as high-liquidity, high-capitalization equities or carefully curated thematic baskets—RainDrop consistently identifies the most structurally robust assets.
-
 In such universes, RainDrop has repeatedly demonstrated the ability to outperform traditional benchmarks, including SPY, equal-weighted portfolios, and random rebalancing strategies.
-
 The app does not blindly optimize the entire market; instead, it selects from your chosen opportunity set and reliably surfaces the top performers within that set.
-
 Across thousands of backtest permutations, RainDrop exhibits its strongest alpha when the underlying universe is meaningful, well-defined, and economically coherent.
 
 In short:
 
 RainDrop magnifies the edge of a good stock universe.
 If the universe represents a strong thematic, fundamental, or factor-based exposure, RainDrop enhances it by isolating the stocks with the strongest structural price dynamics.
+
 This report consolidates RainDrop’s performance across two independent evaluation frameworks:
 
 1. **Historical Market Backtest (2018–2025)**  
