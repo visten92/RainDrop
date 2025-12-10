@@ -42,25 +42,6 @@ This report consolidates RainDrop’s performance across three independent evalu
 - **Live paper trading** on Alpaca demonstrates real-time strategy execution with transparent equity tracking.
 ---
 
-# 📊 Live Paper Trading Performance
-
-## Alpaca Paper Trading Account - Real-Time Equity Curve
-
-The RainDrop strategy is deployed live in an Alpaca paper trading environment, providing real-time validation of the strategy's execution and performance characteristics.
-
-![Alpaca Portfolio Equity](alpaca_equity_graph.png)
-
-*Live equity curve updated from Alpaca Paper Trading API. Run `python fetch_alpaca_equity.py` to regenerate with latest data.*
-
-### Why Paper Trading Validation Matters
-
-- **Execution Reality Check**: Validates that theoretical backtest results translate to real-world order execution
-- **Slippage & Timing**: Captures realistic market microstructure effects not present in backtests
-- **Strategy Robustness**: Demonstrates the strategy works in live market conditions with real-time data feeds
-- **Transparency**: Provides an independent, third-party verifiable performance record
-
----
-
 
 # 🧭 1. Strategy Overview
 
@@ -161,8 +142,25 @@ This confirms:
 - Low susceptibility to overfitting  
 
 ---
+# 6. 📊 Live Paper Trading Performance
 
-# 🔬 6. Why RainDrop Works
+## Alpaca Paper Trading Account - Real-Time Equity Curve
+
+The RainDrop strategy is deployed live in an Alpaca paper trading environment, providing real-time validation of the strategy's execution and performance characteristics.
+
+![Alpaca Portfolio Equity](alpaca_equity_graph.png)
+
+*Live equity curve updated from Alpaca Paper Trading API. Run `python fetch_alpaca_equity.py` to regenerate with latest data.*
+
+### Why Paper Trading Validation Matters
+
+- **Execution Reality Check**: Validates that theoretical backtest results translate to real-world order execution
+- **Slippage & Timing**: Captures realistic market microstructure effects not present in backtests
+- **Strategy Robustness**: Demonstrates the strategy works in live market conditions with real-time data feeds
+- **Transparency**: Provides an independent, third-party verifiable performance record
+
+---
+# 🔬 7. Why RainDrop Works
 
 ### 1. Novel Feature Space  
 Captures structure missed by momentum, value, or machine‑learning models.
@@ -180,7 +178,7 @@ Adds **orthogonal alpha** to existing quant portfolios.
 
 ---
 
-# 💼 7. Portfolio Deployment Considerations
+# 💼 8. Portfolio Deployment Considerations
 
 ### Recommended Uses
 - **Satellite alpha sleeve**  
@@ -196,7 +194,7 @@ Adds **orthogonal alpha** to existing quant portfolios.
 
 ---
 
-# 🚀 8. Summary
+# 🚀 9. Summary
 
 RainDrop demonstrates:
 
