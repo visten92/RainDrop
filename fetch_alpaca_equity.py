@@ -72,10 +72,14 @@ def generate_equity_graph(portfolio_history, output_path: str = "alpaca_equity_g
     )
 
     ax.text(
-        0.02, 0.98, stats_text, transform=ax.transAxes,
-        fontsize=10, verticalalignment='top',
+        0.98, 0.02, stats_text,
+        transform=ax.transAxes,
+        fontsize=10,
+        horizontalalignment='right',
+        verticalalignment='bottom',
         bbox=dict(boxstyle='round', facecolor='wheat', alpha=0.5)
     )
+
 
     plt.tight_layout()
     plt.savefig(output_path, dpi=150, bbox_inches='tight')
