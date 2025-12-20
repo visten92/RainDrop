@@ -18,7 +18,7 @@ from alpaca.trading.client import TradingClient
 from alpaca.trading.requests import GetPortfolioHistoryRequest
 
 # Constants for equity normalization
-NORMALIZED_INITIAL_EQUITY = 100000.0  # Always normalize equity to start from 100k USD
+NORMALIZED_INITIAL_EQUITY = 100_000.0  # Always normalize equity to start from 100k USD
 EPSILON = 1e-10  # Tolerance for floating-point comparison
 
 
