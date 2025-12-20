@@ -65,7 +65,8 @@ def generate_equity_graph(portfolio_history, output_path: str = "alpaca_equity_g
     final_equity = equity[-1]
     
     # Avoid division by zero when initial equity is 0
-    if initial_equity != 0:
+    # Using epsilon tolerance for floating-point comparison
+    if abs(initial_equity) > 1e-10:
         total_return = ((final_equity - initial_equity) / initial_equity) * 100
         return_text = f"Return:  {total_return:+.2f}%"
     else:
