@@ -58,7 +58,7 @@ def generate_equity_graph(portfolio_history, output_path: str = "alpaca_equity_g
         raise ValueError(f"Cannot normalize equity data with negative initial equity: ${actual_initial_equity:,.2f}")
     
     if actual_initial_equity < EPSILON:
-        raise ValueError("Cannot normalize equity data starting from $0. Account has no initial equity.")
+        raise ValueError(f"Cannot normalize equity data starting from near-zero equity: ${actual_initial_equity:.10f}. Account has insufficient initial equity.")
     
     # Scale all equity values to start from 100k
     scaling_factor = NORMALIZED_INITIAL_EQUITY / actual_initial_equity
