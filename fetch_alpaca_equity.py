@@ -48,16 +48,18 @@ def generate_equity_graph(portfolio_history, output_path: str = "alpaca_equity_g
 
     # Always normalize to 100k USD initial equity
     NORMALIZED_INITIAL_EQUITY = 100000.0
+    EPSILON = 1e-10  # Tolerance for floating-point comparison
     actual_initial_equity = equity[0]
     
     # Avoid division by zero when initial equity is 0
-    if abs(actual_initial_equity) > 1e-10:
+    if abs(actual_initial_equity) > EPSILON:
         # Scale all equity values to start from 100k
         scaling_factor = NORMALIZED_INITIAL_EQUITY / actual_initial_equity
         normalized_equity = [e * scaling_factor for e in equity]
     else:
-        # If starting from zero, add 100k to all values
-        normalized_equity = [e + NORMALIZED_INITIAL_EQUITY for e in equity]
+        # If starting from zero, we can't calculate meaningful returns
+        # In this edge case, just use the raw equity values
+        raise ValueError("Cannot normalize equity data starting from $0. Account has no initial equity.")
 
     fig, ax = plt.subplots(figsize=(12, 6))
 
