@@ -63,12 +63,18 @@ def generate_equity_graph(portfolio_history, output_path: str = "alpaca_equity_g
 
     initial_equity = equity[0]
     final_equity = equity[-1]
-    total_return = ((final_equity - initial_equity) / initial_equity) * 100
+    
+    # Avoid division by zero when initial equity is 0
+    if initial_equity != 0:
+        total_return = ((final_equity - initial_equity) / initial_equity) * 100
+        return_text = f"Return:  {total_return:+.2f}%"
+    else:
+        return_text = f"Return:  ${final_equity:,.2f} (N/A - started from $0)"
 
     stats_text = (
         f"Initial: ${initial_equity:,.2f}\n"
         f"Final:   ${final_equity:,.2f}\n"
-        f"Return:  {total_return:+.2f}%"
+        f"{return_text}"
     )
 
     ax.text(
