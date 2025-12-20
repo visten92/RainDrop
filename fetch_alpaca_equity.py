@@ -46,10 +46,23 @@ def generate_equity_graph(portfolio_history, output_path: str = "alpaca_equity_g
 
     dates = [datetime.fromtimestamp(ts) for ts in timestamps]
 
+    # Always normalize to 100k USD initial equity
+    NORMALIZED_INITIAL_EQUITY = 100000.0
+    actual_initial_equity = equity[0]
+    
+    # Avoid division by zero when initial equity is 0
+    if abs(actual_initial_equity) > 1e-10:
+        # Scale all equity values to start from 100k
+        scaling_factor = NORMALIZED_INITIAL_EQUITY / actual_initial_equity
+        normalized_equity = [e * scaling_factor for e in equity]
+    else:
+        # If starting from zero, add 100k to all values
+        normalized_equity = [e + NORMALIZED_INITIAL_EQUITY for e in equity]
+
     fig, ax = plt.subplots(figsize=(12, 6))
 
-    ax.plot(dates, equity, linewidth=2, color='#2E86AB', label='Portfolio Equity')
-    ax.fill_between(dates, equity, alpha=0.3, color='#2E86AB')
+    ax.plot(dates, normalized_equity, linewidth=2, color='#2E86AB', label='Portfolio Equity')
+    ax.fill_between(dates, normalized_equity, alpha=0.3, color='#2E86AB')
 
     ax.set_xlabel('Date', fontsize=12, fontweight='bold')
     ax.set_ylabel('Equity ($)', fontsize=12, fontweight='bold')
@@ -61,16 +74,12 @@ def generate_equity_graph(portfolio_history, output_path: str = "alpaca_equity_g
     ax.xaxis.set_major_locator(mdates.AutoDateLocator())
     plt.xticks(rotation=45)
 
-    initial_equity = equity[0]
-    final_equity = equity[-1]
+    initial_equity = NORMALIZED_INITIAL_EQUITY
+    final_equity = normalized_equity[-1]
     
-    # Avoid division by zero when initial equity is 0
-    # Using epsilon tolerance for floating-point comparison
-    if abs(initial_equity) > 1e-10:
-        total_return = ((final_equity - initial_equity) / initial_equity) * 100
-        return_text = f"Return:  {total_return:+.2f}%"
-    else:
-        return_text = f"Return:  ${final_equity:,.2f} (N/A - started from $0)"
+    # Calculate return based on 100k initial equity
+    total_return = ((final_equity - initial_equity) / initial_equity) * 100
+    return_text = f"Return:  {total_return:+.2f}%"
 
     stats_text = (
         f"Initial: ${initial_equity:,.2f}\n"
