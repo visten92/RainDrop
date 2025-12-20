@@ -17,6 +17,10 @@ import matplotlib.dates as mdates
 from alpaca.trading.client import TradingClient
 from alpaca.trading.requests import GetPortfolioHistoryRequest
 
+# Constants for equity normalization
+NORMALIZED_INITIAL_EQUITY = 100000.0  # Always normalize equity to start from 100k USD
+EPSILON = 1e-10  # Tolerance for floating-point comparison
+
 
 def fetch_equity_data(api_key: str, secret_key: str, timeframe: str = "1D", period: str = "1M"):
     """
@@ -47,8 +51,6 @@ def generate_equity_graph(portfolio_history, output_path: str = "alpaca_equity_g
     dates = [datetime.fromtimestamp(ts) for ts in timestamps]
 
     # Always normalize to 100k USD initial equity
-    NORMALIZED_INITIAL_EQUITY = 100000.0
-    EPSILON = 1e-10  # Tolerance for floating-point comparison
     actual_initial_equity = equity[0]
     
     # Avoid division by zero when initial equity is 0
