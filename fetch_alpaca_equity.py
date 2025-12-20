@@ -50,12 +50,14 @@ def generate_equity_graph(portfolio_history, output_path: str = "alpaca_equity_g
     dates = [datetime.fromtimestamp(ts) for ts in timestamps]
 
     # Set initial amount to 100000 without getting value from Alpaca
-    # Note: This assumes the Alpaca paper trading account was funded with $100k
+    # Display $100k as the initial amount (hardcoded, not from API)
+    # Note: This assumes the Alpaca account was funded with $100k
     initial_equity = NORMALIZED_INITIAL_EQUITY
     equity_values = equity
     final_equity = equity_values[-1]
     
-    # Calculate return based on the assumed 100k initial amount
+    # Calculate return assuming 100k initial amount
+    # Note: This will be accurate only if the account actually started with ~$100k
     total_return = ((final_equity - initial_equity) / initial_equity) * 100
     return_text = f"Return:  {total_return:+.2f}%"
 
