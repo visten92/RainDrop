@@ -19,7 +19,6 @@ from alpaca.trading.requests import GetPortfolioHistoryRequest
 
 # Constants for equity normalization
 NORMALIZED_INITIAL_EQUITY = 100_000.0  # Always normalize equity to start from 100k USD
-EPSILON = 1e-10  # Tolerance for floating-point comparison
 
 
 def fetch_equity_data(api_key: str, secret_key: str, timeframe: str = "1D", period: str = "1M"):
@@ -50,24 +49,26 @@ def generate_equity_graph(portfolio_history, output_path: str = "alpaca_equity_g
 
     dates = [datetime.fromtimestamp(ts) for ts in timestamps]
 
-    # Always normalize to 100k USD initial equity
-    actual_initial_equity = equity[0]
+    # Set initial amount to 100000 without getting value from Alpaca
+    # Note: This assumes the Alpaca paper trading account was funded with $100k
+    initial_equity = NORMALIZED_INITIAL_EQUITY
+    equity_values = equity
+    final_equity = equity_values[-1]
     
-    # Validate initial equity - check in order: negative, then zero
-    if actual_initial_equity < 0:
-        raise ValueError(f"Cannot normalize equity data with negative initial equity: ${actual_initial_equity:,.2f}")
-    
-    if actual_initial_equity < EPSILON:
-        raise ValueError(f"Cannot normalize equity data starting from near-zero equity: ${actual_initial_equity:.10f}. Account has insufficient initial equity.")
-    
-    # Scale all equity values to start from 100k
-    scaling_factor = NORMALIZED_INITIAL_EQUITY / actual_initial_equity
-    normalized_equity = [e * scaling_factor for e in equity]
+    # Calculate return based on the assumed 100k initial amount
+    total_return = ((final_equity - initial_equity) / initial_equity) * 100
+    return_text = f"Return:  {total_return:+.2f}%"
+
+    stats_text = (
+        f"Initial: ${initial_equity:,.2f}\n"
+        f"Final:   ${final_equity:,.2f}\n"
+        f"{return_text}"
+    )
 
     fig, ax = plt.subplots(figsize=(12, 6))
 
-    ax.plot(dates, normalized_equity, linewidth=2, color='#2E86AB', label='Portfolio Equity')
-    ax.fill_between(dates, normalized_equity, alpha=0.3, color='#2E86AB')
+    ax.plot(dates, equity_values, linewidth=2, color='#2E86AB', label='Portfolio Equity')
+    ax.fill_between(dates, equity_values, alpha=0.3, color='#2E86AB')
 
     ax.set_xlabel('Date', fontsize=12, fontweight='bold')
     ax.set_ylabel('Equity ($)', fontsize=12, fontweight='bold')
@@ -78,19 +79,6 @@ def generate_equity_graph(portfolio_history, output_path: str = "alpaca_equity_g
     ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))
     ax.xaxis.set_major_locator(mdates.AutoDateLocator())
     plt.xticks(rotation=45)
-
-    initial_equity = NORMALIZED_INITIAL_EQUITY
-    final_equity = normalized_equity[-1]
-    
-    # Calculate return based on normalized initial equity
-    total_return = ((final_equity - initial_equity) / initial_equity) * 100
-    return_text = f"Return:  {total_return:+.2f}%"
-
-    stats_text = (
-        f"Initial: ${initial_equity:,.2f}\n"
-        f"Final:   ${final_equity:,.2f}\n"
-        f"{return_text}"
-    )
 
     ax.text(
         0.98, 0.02, stats_text,
