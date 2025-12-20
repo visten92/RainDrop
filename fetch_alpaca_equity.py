@@ -51,13 +51,13 @@ def generate_equity_graph(portfolio_history, output_path: str = "alpaca_equity_g
 
     # Set initial amount to 100000 without getting value from Alpaca
     # Display $100k as the initial amount (hardcoded, not from API)
-    # Note: This assumes the Alpaca account was funded with $100k
+    # IMPORTANT: This assumes the Alpaca account was funded with exactly $100k
+    # If the actual starting balance differs, statistics will be inaccurate
     initial_equity = NORMALIZED_INITIAL_EQUITY
-    equity_values = equity
-    final_equity = equity_values[-1]
+    final_equity = equity[-1]
     
     # Calculate return assuming 100k initial amount
-    # Note: This will be accurate only if the account actually started with ~$100k
+    # WARNING: This will only be accurate if account actually started with ~$100k
     total_return = ((final_equity - initial_equity) / initial_equity) * 100
     return_text = f"Return:  {total_return:+.2f}%"
 
@@ -69,8 +69,8 @@ def generate_equity_graph(portfolio_history, output_path: str = "alpaca_equity_g
 
     fig, ax = plt.subplots(figsize=(12, 6))
 
-    ax.plot(dates, equity_values, linewidth=2, color='#2E86AB', label='Portfolio Equity')
-    ax.fill_between(dates, equity_values, alpha=0.3, color='#2E86AB')
+    ax.plot(dates, equity, linewidth=2, color='#2E86AB', label='Portfolio Equity')
+    ax.fill_between(dates, equity, alpha=0.3, color='#2E86AB')
 
     ax.set_xlabel('Date', fontsize=12, fontweight='bold')
     ax.set_ylabel('Equity ($)', fontsize=12, fontweight='bold')
