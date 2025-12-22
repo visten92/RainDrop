@@ -146,7 +146,7 @@ This confirms:
 
 ## Alpaca Paper Trading Account - Real-Time Equity Curve
 
-The RainDrop strategy is deployed live in an Alpaca paper trading environment, providing real-time validation of the strategy's execution and performance characteristics.
+The RainDrop strategy is deployed live in an Alpaca paper trading environment, providing real-time validation of the strategy's execution and performance characteristics. The chart bellow shows the performance of RainDrop Aggressive profile using the Nasdaq 100 (QQQ) stock universe.
 
 ![Alpaca Portfolio Equity](alpaca_equity_graph.png)
 
