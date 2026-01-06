@@ -112,7 +112,7 @@ These independent metrics provide unbiased, real-world validation of predictive 
 
 ---
 
-# 🏆 5. RainDrop Performance on Numerai Signals (Rounds 1130–1156)
+# 🏆 5. RainDrop Performance on Numerai Signals (Rounds 1130–1170)
 <img width="1521" height="562" alt="image" src="https://github.com/user-attachments/assets/2b2414a0-66fc-4b05-9625-c51bfb458904" />
 
 
